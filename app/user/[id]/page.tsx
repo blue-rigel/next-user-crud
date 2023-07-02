@@ -3,7 +3,7 @@ import Button from "@/components/button";
 import Input from "@/components/input";
 import { useGetSingleUserQuery, useUpdateUserMutation } from "@/services/user";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { userCreateUpdateSchema } from "@/util/schema";
+import { userUpdateSchema } from "@/util/schema";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
@@ -18,7 +18,7 @@ export default function Edit({ params }: { params: { id: string } }) {
     setValue,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(userCreateUpdateSchema) });
+  } = useForm({ resolver: yupResolver(userUpdateSchema) });
 
   const onSubmit = async (data: any) => {
     await updateUser({id: parseInt(params.id), ...data})

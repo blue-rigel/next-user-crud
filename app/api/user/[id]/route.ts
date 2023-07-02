@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
-import { userCreateUpdateSchema } from "@/util/schema";
+import { userCreateUpdateSchema, userUpdateSchema } from "@/util/schema";
 import { User } from "@/util/types";
 
 // Get Single user
@@ -27,17 +27,16 @@ export async function PUT(
 ) {
   try {
     const body = await request.json();
-    const parsedUser = await userCreateUpdateSchema.validate(body);
-    const {username, ...userPayload} = parsedUser; // Removed username from payload to prevent edit
+    const parsedUser = await userUpdateSchema.validate(body);
     await prisma.user.update({
-      data: userPayload,
+      data: parsedUser,
       where: {
         id: parseInt(params.id),
       },
     });
     return NextResponse.json({
       status: "success",
-      message: `User ${parsedUser.username} updated successfully`,
+      message: "User updated successfully",
     });
   } catch (error: any) {
     return NextResponse.json({

@@ -42,6 +42,11 @@ const Table = ({
           </tr>
         </thead>
         <tbody>
+          {
+            data && data.length === 0 && <tr className="text-center">
+              <td colSpan={4} className="py-4">No User available</td>
+            </tr>
+          }
           {data?.map((row, index) => (
             <tr key={index}>
               {columns.map((col, colIndex) => (

@@ -10,7 +10,7 @@ const Input = ({
   label: string;
   field: "username" | "first_name" | "last_name";
   register: UseFormRegister<{
-    username: string;
+    username?: string;
     first_name: string;
     last_name: string | undefined;
   }>;

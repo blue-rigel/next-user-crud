@@ -6,4 +6,9 @@ const userCreateUpdateSchema = object().shape({
     last_name: string().max(55, "Lastname cannot have more than 55 chars.")
 })
 
-export { userCreateUpdateSchema }
+const userUpdateSchema = object().shape({
+    first_name: string().required("Firstname is required").min(3, "Firstname must have atleast 3 chars.").max(55, "Firstname cannot have more than 55 chars."),
+    last_name: string().max(55, "Lastname cannot have more than 55 chars.")
+})
+
+export { userCreateUpdateSchema, userUpdateSchema }
