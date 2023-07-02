@@ -9,11 +9,7 @@ const Input = ({
 }: {
   label: string;
   field: "username" | "first_name" | "last_name";
-  register: UseFormRegister<{
-    username?: string;
-    first_name: string;
-    last_name: string | undefined;
-  }>;
+  register: any;
   required?: boolean;
   errors: FieldErrors<{
     username: string;
