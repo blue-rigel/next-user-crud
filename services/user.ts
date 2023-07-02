@@ -6,7 +6,7 @@ export const userApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_URL }),
   tagTypes: ["Users", "SingleUser"],
   endpoints: (builder) => ({
-    getAllUsers: builder.query({
+    getAllUsers: builder.query<{ data: User[], status: string}, void>({
       query: () => "api/user",
       providesTags: ["Users"]
     }),

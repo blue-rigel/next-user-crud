@@ -30,6 +30,7 @@ export default function Edit({ params }: { params: { id: string } }) {
         setValue("first_name", data.data["first_name"])
         setValue("last_name", data.data["last_name"])
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
 
   if(isLoading) {
