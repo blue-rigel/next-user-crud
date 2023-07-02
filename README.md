@@ -1,6 +1,8 @@
 
 ## Getting Started
 
+Works best with node 16+
+
 Install the Node Modules with npm
 ```bash
 npm install
